@@ -13,6 +13,8 @@ jobs:
         run: python hello.py
         continue-on-error: true # Allow failure:true
 
+      - uses: ./.github/actions/say-from-thiti
+
       # On Success of the previous step
       - name: Force fail after success
         if: success() # Only run if the previous step succeeded
