@@ -11,5 +11,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run hello.py
         run: python hello.py
+        continue-on-error: true # Allow failure:true
+
+      # On Success of the previous step
+      - name: Force fail after success
+        if: success() # Only run if the previous step succeeded
+        run: |
+          echo "💥 Force fail after success"
+          exit 1
+
       - name: Simulate DEV deploy
         run: echo "Simulating deployment to DEV environment"
