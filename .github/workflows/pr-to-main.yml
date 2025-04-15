@@ -1,0 +1,16 @@
+name: PR → MAIN (UAT Check)
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  pr-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Pull Request
+        run: |
+          echo "PR opened to MAIN"
+          python hello.py
+          echo "Simulating UAT testing..."

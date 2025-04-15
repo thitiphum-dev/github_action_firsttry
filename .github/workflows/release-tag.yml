@@ -1,0 +1,17 @@
+name: Release on Tag (PROD)
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  prod-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Production
+        run: |
+          echo "Deploying version: ${{ github.ref_name }}"
+          python hello.py
+          echo "Simulating PRODUCTION deployment"
