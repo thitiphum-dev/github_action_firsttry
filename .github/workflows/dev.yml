@@ -16,11 +16,13 @@ jobs:
       - uses: ./.github/actions/say-from-thiti
 
       # On Success of the previous step
-      - name: Force fail after success
+      - name: on success
         if: success() # Only run if the previous step succeeded
         run: |
-          echo "💥 Force fail after success"
-          exit 1
+          echo "It works!"
 
       - name: Simulate DEV deploy
         run: echo "Simulating deployment to DEV environment"
+
+  alpine-job:
+    uses: ./.github/jobs/say-alpine.yml
