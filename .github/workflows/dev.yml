@@ -1,0 +1,15 @@
+name: DEV CI
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  dev-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run hello.py
+        run: python hello.py
+      - name: Simulate DEV deploy
+        run: echo "Simulating deployment to DEV environment"
