@@ -25,4 +25,4 @@ jobs:
         run: echo "Simulating deployment to DEV environment"
 
   alpine-job:
-    uses: ./.github/workflows/say-alpine.yml@dev
+    uses: ./.github/workflows/say-alpine.yml
